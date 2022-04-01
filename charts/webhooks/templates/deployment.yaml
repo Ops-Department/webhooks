@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "generic-webhook.fullname" . }}
+  name: {{ include "webhooks.fullname" . }}
   labels:
-    {{- include "generic-webhook.labels" . | nindent 4 }}
+    {{- include "webhooks.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "generic-webhook.selectorLabels" . | nindent 6 }}
+      {{- include "webhooks.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       annotations:
@@ -19,13 +19,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "generic-webhook.selectorLabels" . | nindent 8 }}
+        {{- include "webhooks.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "generic-webhook.serviceAccountName" . }}
+      serviceAccountName: {{ include "webhooks.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
@@ -76,7 +76,7 @@ spec:
       volumes:
         - name: configs
           configMap:
-            name: {{ include "generic-webhook.fullname" $ }}
+            name: {{ include "webhooks.fullname" $ }}
             defaultMode: 0755
       {{- with .Values.nodeSelector }}
       nodeSelector:

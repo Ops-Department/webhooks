@@ -1,5 +1,5 @@
 apiVersion: v2
-name: generic-webhook
+name: webhooks
 description: A Helm chart for adnanh/webhook(thecatlady/docker-webhook)
 
 # A chart can be either an 'application' or a 'library' chart.
