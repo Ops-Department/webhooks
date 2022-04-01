@@ -40,7 +40,7 @@ spec:
             - |
               cd /config
               #### BEGIN STARTUP{{ .Values.startupCommands | nindent 14 }}#### STARTING WEBHOOKS
-              TINI_SUBREAPER=true /sbin/tini -- /usr/local/bin/webhook -verbose -hotreload -hooks=hooks.yaml
+              TINI_SUBREAPER=true /sbin/tini -- /usr/local/bin/webhook -verbose -hotreload -template -hooks=hooks.yaml
           env:
           {{- range $pkey, $pval := .Values.env }}
           - name: {{ $pkey }}
