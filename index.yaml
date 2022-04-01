@@ -3,6 +3,16 @@ entries:
   generic-webhook:
   - apiVersion: v2
     appVersion: 2.8.0
+    created: "2022-04-01T00:32:53.481219268Z"
+    description: A Helm chart for adnanh/webhook(thecatlady/docker-webhook)
+    digest: d7b26ed56d1574a66c433878f3c16569b1c7d4f2324cfb470abd86f98ac207b3
+    name: generic-webhook
+    type: application
+    urls:
+    - https://github.com/Ops-Department/webhooks/releases/download/generic-webhook-0.1.1/generic-webhook-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 2.8.0
     created: "2022-04-01T00:26:44.283775025Z"
     description: A Helm chart for adnanh/webhook(thecatlady/docker-webhook)
     digest: fb4fdf8350cd4e22fb29ae0ccbb42b6672dc27321d1db0a8168186c4ff9a2b0b
